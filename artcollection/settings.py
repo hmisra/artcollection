@@ -12,6 +12,13 @@ BOT_NAME = 'artcollection'
 
 SPIDER_MODULES = ['artcollection.spiders']
 NEWSPIDER_MODULE = 'artcollection.spiders'
+DUPEFILTER_CLASS = 'artcollection.myfilter.CustomFilter'
+ITEM_PIPELINES = {
+    'artcollection.pipelines.ArtcollectionPipeline': 300,
+    'artcollection.pipelines.DuplicatesPipeline': 300,
+    'artcollection.pipelines.JsonWriterPipeline':800,
+
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'artcollection (+http://www.yourdomain.com)'
